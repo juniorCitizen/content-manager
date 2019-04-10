@@ -1,6 +1,6 @@
-# Product Catalog Content Generator
+# Product Catalog Website Content Generator
 
-> command-line utilities to scaffold contents and assets for product catalog website projects
+> command-line utilities to scaffold contents and assets for [product catalog website](https://github.com/juniorCitizen/gentry-way) projects
 
 ## USAGE
 
@@ -37,7 +37,7 @@ contentGenerator scaffold [netlifyCms|storyblok] "directory" # when installed as
 
 ## DETAILS
 
-### _Reset project folders_
+### **Reset project folders**
 
 ```bash
 # clear out generated contents to start over
@@ -48,7 +48,7 @@ contentGenerator reset # when installed as a global package
 - execution requires a yes/no confirmation
 - './assets/' and './static/' folders are deleted
 
-### _Import image assets_
+### **Import image assets**
 
 ```bash
 # copy image assets from specified location to working directory
@@ -60,7 +60,7 @@ contentGenerator import images "directory" # when installed as a global package
 - copy everything from under the specified directory to "./assets/images/"
   > **note**: _each folder under the source image asset directory should be named after a product slug, and holding only image assets of this product_
 
-### _Import user data file_
+### **Import user data file**
 
 ```bash
 # copy user data file from specified location to working director
@@ -71,11 +71,11 @@ contentGenerator import data "filePath" # when installed as a global package
 - copy the file specified by the _filePath_ to "./assets/", and rename it to "userData.xlsx"
   > _"userData.xlsx" is an excel file that holds the initial product catalog data to be scaffold, e.g. "cateogry", "series", "product", etc..._
 
-### _Image asset deployment_
+### **Image asset deployment**
 
 > deploys image assets to one the specified CMS system
 
-#### **(a) NetlifyCMS running from a Github repo**
+#### *(a) NetlifyCMS running from a Github repo*
 
 ```bash
 # deploy or upload image assets according to NetlifyCMS specification
@@ -87,7 +87,7 @@ contentGenerator cms netlifyCms # when installed as a global package
 - files are copied to "./static/images/" (see **note**), and a manifest is generated listing file mapping information of each image asset
   > **note**: _media_folder is assumed to be "static/images" and public_folder is set to "/images". This info is included in the generated "./assets/manifests/images.json" and will be used in the final content generation phase. This is currently hardcoded into the generator, to change this behavior, either modify "./lib/imageUploaders/netlifyCms.js", or do a mass search and replace on the generated images.json manifest file_
 
-#### **(b) using Storyblok space as asset storage**
+#### *(b) using Storyblok space as asset storage*
 
 ```bash
 # deploy or upload image assets to a Storyblok space
@@ -106,7 +106,7 @@ contentGenerator cms storyblok # when installed as a global package
 
 > _"images.json" is generated under "./assets/manifests/" after deployment, which contains a list of images related mapping information to be used during content generation phase_
 
-### _Product catalog website content generation_
+### **Product catalog website content generation**
 
 ```bash
 # markdown content generation
@@ -146,7 +146,7 @@ contentGenerator generate # when installed as a global package
 
    (d) a listing of all merchandise (categories, series and products) .md file names and types are listed as an array of objects in the 'content.json' file
 
-### _Scaffolding a website project by copying product catalog contents_
+### **Scaffolding a website project by copying product catalog contents**
 
 ```bash
 # scaffold the generated content to a local website project repo according to the specified CMS system
