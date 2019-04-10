@@ -1,6 +1,6 @@
 # Product Catalog Website Content Generator
 
-> command-line utilities to scaffold contents and assets for [product catalog website](https://github.com/juniorCitizen/gentry-way) projects
+> command-line utilities to scaffold markdown contents and assets for [product catalog website](https://github.com/juniorCitizen/gentry-way) projects
 
 ## USAGE
 
