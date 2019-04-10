@@ -12,10 +12,10 @@
   "private": true,
   "license": "GPL-3.0-or-later",
   "keywords": [
-    "node.js",
+    "nodejs",
     "cli",
-    "Storyblok",
-    "netlifyCMS",
+    "storyblok",
+    "netlify-cms",
     "markdown"
   ],
   "dependencies": {
