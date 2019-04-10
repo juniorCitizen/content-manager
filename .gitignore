@@ -1,0 +1,13 @@
+node_modules
+
+.editorconfig
+.eslintrc.js
+.markdownlint.json
+.prettierrc.js
+
+.env
+
+.vscode
+
+assets
+static
