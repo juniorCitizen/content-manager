@@ -40,8 +40,8 @@ program
   })
 
 program
-  .command('cms <cmsSystem>')
-  .description('process image assets according to the specified CMS system')
+  .command('deploy <cmsSystem>')
+  .description('deploy image assets according to the specified CMS system')
   .action(async cmsSystem => {
     try {
       await processImageAssets(cmsSystem)

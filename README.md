@@ -18,13 +18,13 @@ contentGenerator reset # when installed as a global package
 node ./bin/index import images "directory"
 contentGenerator import images "directory" # when installed as a global package
 
-# copy user data file from specified location to working director
+# copy user data file from specified location to working directory
 node ./bin/index import data "filePath"
 contentGenerator import data "filePath" # when installed as a global package
 
 # deploy or upload image assets according to the specified CMS system
-node ./bin/index cms [netlifyCms|storyblok]
-contentGenerator cms [netlifyCms|storyblok] # when installed as a global package
+node ./bin/index deploy [netlifyCms|storyblok]
+contentGenerator deploy [netlifyCms|storyblok] # when installed as a global package
 
 # markdown content generation
 node ./bin/index generate
@@ -75,7 +75,7 @@ contentGenerator import data "filePath" # when installed as a global package
 
 > deploys image assets to one the specified CMS system
 
-#### *(a) NetlifyCMS running from a Github repo*
+#### _(a) NetlifyCMS running from a Github repo_
 
 ```bash
 # deploy or upload image assets according to NetlifyCMS specification
@@ -87,7 +87,7 @@ contentGenerator cms netlifyCms # when installed as a global package
 - files are copied to "./static/images/" (see **note**), and a manifest is generated listing file mapping information of each image asset
   > **note**: _media_folder is assumed to be "static/images" and public_folder is set to "/images". This info is included in the generated "./assets/manifests/images.json" and will be used in the final content generation phase. This is currently hardcoded into the generator, to change this behavior, either modify "./lib/imageUploaders/netlifyCms.js", or do a mass search and replace on the generated images.json manifest file_
 
-#### *(b) using Storyblok space as asset storage*
+#### _(b) using Storyblok space as asset storage_
 
 ```bash
 # deploy or upload image assets to a Storyblok space
