@@ -5,10 +5,13 @@ Command-line utilities to scaffold markdown contents and image assets for [produ
 ## Installation
 
 ```bash
+# CLONE THE PROJECT FILES
+clone https://github.com/juniorCitizen/content-generator.git
+
 # INSTALL AS A GLOBAL PACKAGE
 npm install -g ./
 
-# GENERATE A .env file from example
+# GENERATE A .env FILE FROM EXAMPLE
 cp ./.env.example ./.env
 ```
 
