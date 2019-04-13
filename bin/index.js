@@ -2,9 +2,17 @@
 const path = require('path')
 const fs = require('fs-extra')
 const program = require('commander')
+const yaml = require('js-yaml')
+
+const configDir = path.resolve('./static/admin')
+const configPath = path.join(configDir, 'config.yml')
+const rawConfig = fs.readFileSync(configPath)
+const parsedConfig = yaml.safeLoad(rawConfig)
+const mediaDir = path.resolve('./' + parsedConfig.media_folder)
 
 const generateContent = require('../lib/actions/generateContent')
 const importImages = require('../lib/actions/importImages')
+const importNetlifyCmsConfig = require('../lib/actions/importNetlifyCmsConfig')
 const importUserData = require('../lib/actions/importUserData')
 const processImageAssets = require('../lib/actions/processImageAssets')
 const reset = require('../lib/actions/reset')
@@ -22,7 +30,9 @@ program
 
 program
   .command('import <type> <location>')
-  .description('import project data or assets from specified path')
+  .description(
+    'import project data, configuration or assets from specified path'
+  )
   .action(async (type, location) => {
     try {
       if (type === 'images') {
@@ -31,6 +41,9 @@ program
       } else if (type === 'data') {
         await importUserData(path.resolve(location))
         console.log('user data is imported')
+      } else if (type === 'netlifyCmsConfig') {
+        await importNetlifyCmsConfig(path.resolve(location))
+        console.log('NetlifyCMS config is imported')
       } else {
         throw new Error(`"${type}" is not a valid import type`)
       }
@@ -71,20 +84,23 @@ program
       const srcDirs = {
         content: path.resolve('./assets/content'),
         manifest: path.resolve('./assets/manifests'),
-        imageAsset: path.resolve('./static/images'),
+        imageAsset: mediaDir,
       }
       const destDirs = {
         content: path.join(destBaseDir, 'assets', 'content'),
         manifest: path.join(destBaseDir, 'assets', 'manifests'),
-        imageAsset: path.join(destBaseDir, 'static', 'images'),
+        imageAsset: path.join(
+          destBaseDir,
+          ...parsedConfig.media_folder.split('/')
+        ),
       }
       await fs.copy(srcDirs.content, destDirs.content)
       await fs.copy(srcDirs.manifest, destDirs.manifest)
       await fs.remove(path.join(destDirs.manifest, 'images.json'))
-      console.log('markdown content and manifest are scaffold')
+      console.log('markdown content and manifest scaffolding completed')
       if (cmsSystem === 'netlifyCms') {
         await fs.copy(srcDirs.imageAsset, destDirs.imageAsset)
-        console.log('NetlifyCMS image assets are scaffold')
+        console.log('NetlifyCMS image assets scaffolding completed')
       }
     } catch (error) {
       console.log(error)
