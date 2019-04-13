@@ -17,7 +17,7 @@ cp ./.env.example ./.env
 
 **!!! BEFORE PROCEEDING FURTHER !!!**
 
-This project uses [dotenv-safe](https://www.npmjs.com/package/dotenv-safe) to hydrate environment variables, which requires the .env file has the same elements as the .env.example file. Remove the Storyblok credential related items if not used before proceeding.
+This project uses [dotenv-safe](https://www.npmjs.com/package/dotenv-safe) to hydrate environment variables, which requires the .env file has the same elements as the .env.example file. Remove Storyblok credential related items if not used before proceeding.
 
 ## Usage
 
