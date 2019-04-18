@@ -9,5 +9,10 @@ node_modules
 
 .vscode
 
-assets
-static
+!static/
+static/*
+!static/admin/
+static/admin/config.yml
+
+assets/images
+assets/userData.xlsx
