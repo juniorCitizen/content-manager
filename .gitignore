@@ -14,5 +14,7 @@ static/*
 !static/admin/
 static/admin/config.yml
 
+assets/content
 assets/images
+assets/manifests
 assets/userData.xlsx
