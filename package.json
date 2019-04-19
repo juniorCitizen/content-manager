@@ -29,6 +29,7 @@
     "inquirer": "^6.3.1",
     "js-yaml": "^3.13.1",
     "sharp": "^0.22.0",
+    "simple-excel-reader": "^1.0.0",
     "slugify": "^1.3.4",
     "storyblok-js-client": "^1.0.22",
     "uuid": "^3.3.2"
