@@ -19,6 +19,7 @@
     "markdown"
   ],
   "dependencies": {
+    "@juniorcitizen/convert-to-png": "^1.0.1",
     "bluebird": "^3.5.4",
     "commander": "^2.20.0",
     "dotenv-safe": "^6.1.0",
